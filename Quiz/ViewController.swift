@@ -32,7 +32,7 @@ class ViewController: UIViewController {
         questionLabel.text = questions[currentQuestionIndex]
     }
 
-    @IBAction func showNextQuestion(_ sender: UIButton) {
+    @IBAction func onNextQuestionClick(_ sender: UIButton) {
         currentQuestionIndex += 1
         if currentQuestionIndex == questions.count {
             currentQuestionIndex = 0
@@ -43,7 +43,7 @@ class ViewController: UIViewController {
         answerLabel.text = "???"
     }
     
-    @IBAction func showAnswer(_ sender: UIButton) {
+    @IBAction func onShowAnswerClick(_ sender: UIButton) {
         let answer: String = answers[currentQuestionIndex]
         answerLabel.text = answer
     }
