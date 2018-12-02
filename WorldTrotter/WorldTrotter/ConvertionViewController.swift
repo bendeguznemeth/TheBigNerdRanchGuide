@@ -58,7 +58,11 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
 //        print("Replacement text: \(string)")
 //        return true
         
-        if let currentText = textField.text, currentText.contains("."), string == "." {
+        let characterSet = NSCharacterSet.decimalDigits
+        
+        if let currentCharacter = textField.text, currentCharacter.contains("."), string == "." {
+            return false
+        } else if !characterSet.isSuperset(of: CharacterSet(charactersIn: string)), string != "." {
             return false
         } else {
             return true
