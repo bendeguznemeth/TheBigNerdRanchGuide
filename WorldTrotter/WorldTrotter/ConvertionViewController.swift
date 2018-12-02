@@ -11,6 +11,7 @@ import UIKit
 class ConversionViewController: UIViewController {
     
     @IBOutlet var celsiusLabel: UILabel!
+    @IBOutlet var textField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +37,10 @@ class ConversionViewController: UIViewController {
         } else {
             celsiusLabel.text = "???"
         }
+    }
+    
+    @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+        textField.resignFirstResponder()
     }
     
 }
