@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		EDF5063421B2B89700DF59B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF5063321B2B89700DF59B5 /* AppDelegate.swift */; };
-		EDF5063621B2B89700DF59B5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF5063521B2B89700DF59B5 /* ViewController.swift */; };
 		EDF5063921B2B89700DF59B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDF5063721B2B89700DF59B5 /* Main.storyboard */; };
 		EDF5063B21B2B89900DF59B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDF5063A21B2B89900DF59B5 /* Assets.xcassets */; };
 		EDF5063E21B2B89900DF59B5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDF5063C21B2B89900DF59B5 /* LaunchScreen.storyboard */; };
 		EDF5064921B2B89900DF59B5 /* WorldTrotterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF5064821B2B89900DF59B5 /* WorldTrotterTests.swift */; };
 		EDF5065421B2B89900DF59B5 /* WorldTrotterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF5065321B2B89900DF59B5 /* WorldTrotterUITests.swift */; };
+		EDF5066221B3B67B00DF59B5 /* ConvertionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF5066121B3B67B00DF59B5 /* ConvertionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +36,6 @@
 /* Begin PBXFileReference section */
 		EDF5063021B2B89700DF59B5 /* WorldTrotter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorldTrotter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDF5063321B2B89700DF59B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		EDF5063521B2B89700DF59B5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		EDF5063821B2B89700DF59B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EDF5063A21B2B89900DF59B5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EDF5063D21B2B89900DF59B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +46,7 @@
 		EDF5064F21B2B89900DF59B5 /* WorldTrotterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WorldTrotterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDF5065321B2B89900DF59B5 /* WorldTrotterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldTrotterUITests.swift; sourceTree = "<group>"; };
 		EDF5065521B2B89900DF59B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EDF5066121B3B67B00DF59B5 /* ConvertionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				EDF5063321B2B89700DF59B5 /* AppDelegate.swift */,
-				EDF5063521B2B89700DF59B5 /* ViewController.swift */,
+				EDF5066121B3B67B00DF59B5 /* ConvertionViewController.swift */,
 				EDF5063721B2B89700DF59B5 /* Main.storyboard */,
 				EDF5063A21B2B89900DF59B5 /* Assets.xcassets */,
 				EDF5063C21B2B89900DF59B5 /* LaunchScreen.storyboard */,
@@ -256,8 +256,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EDF5063621B2B89700DF59B5 /* ViewController.swift in Sources */,
 				EDF5063421B2B89700DF59B5 /* AppDelegate.swift in Sources */,
+				EDF5066221B3B67B00DF59B5 /* ConvertionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
