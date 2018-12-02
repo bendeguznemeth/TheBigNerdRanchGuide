@@ -13,10 +13,22 @@ class ConversionViewController: UIViewController {
     @IBOutlet var celsiusLabel: UILabel!
     @IBOutlet var textField: UITextField!
     
+    var fahrenheitValue: Measurement<UnitTemperature>? {
+        didSet {
+            updateCelsiusLabel()
+        }
+    }
+    
+    var celsiusValue: Measurement<UnitTemperature>? {
+        if let fahrenheitValue = fahrenheitValue {
+            return fahrenheitValue.converted(to: .celsius)
+        } else {
+            return nil
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
         
         //        let firstFrame = CGRect(x: 160, y: 240, width: 100, height: 150)
         //        let firstView = UIView(frame: firstFrame)
@@ -27,20 +39,37 @@ class ConversionViewController: UIViewController {
         //        let secondView = UIView(frame: secondFrame)
         //        secondView.backgroundColor = UIColor.green
         //        firstView.addSubview(secondView)
+        
+        updateCelsiusLabel()
+        
     }
     
     @IBAction func fahrenheitFieldEditingChanged(_ textField: UITextField) {
 //        celsiusLabel.text = textField.text
         
-        if let text = textField.text, !text.isEmpty {
-            celsiusLabel.text = text
+//        if let text = textField.text, !text.isEmpty {
+//            celsiusLabel.text = text
+//        } else {
+//            celsiusLabel.text = "???"
+//        }
+        
+        if let text = textField.text, let value = Double(text) {
+            fahrenheitValue = Measurement(value: value, unit: .fahrenheit)
         } else {
-            celsiusLabel.text = "???"
+            fahrenheitValue = nil
         }
     }
     
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
         textField.resignFirstResponder()
+    }
+    
+    func updateCelsiusLabel() {
+        if let celsiusValue = celsiusValue {
+            celsiusLabel.text = "\(celsiusValue.value)"
+        } else {
+            celsiusLabel.text = "???"
+        }
     }
     
 }
