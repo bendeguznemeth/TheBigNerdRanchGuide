@@ -35,6 +35,8 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
         return nf
     }()
     
+    var bool = true
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -51,6 +53,19 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
         print("ConvertionViewController loaded its view.")
         
         updateCelsiusLabel()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if bool {
+            self.view.backgroundColor = UIColor(red:0.96, green:0.96, blue:1.00, alpha:1.0)
+            bool = !bool
+        } else {
+            self.view.backgroundColor = UIColor(red:0.26, green:0.71, blue:0.96, alpha:1.0)
+            bool = !bool
+        }
         
     }
     
