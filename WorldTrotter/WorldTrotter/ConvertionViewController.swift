@@ -48,6 +48,8 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
         //        secondView.backgroundColor = UIColor.green
         //        firstView.addSubview(secondView)
         
+        print("ConvertionViewController loaded its view.")
+        
         updateCelsiusLabel()
         
     }
