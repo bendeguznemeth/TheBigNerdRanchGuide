@@ -93,6 +93,44 @@ for (space, name) in nameByParkingSpace {
     print(permit)
 }
 
+
+struct Man {
+    let firstName: String
+    let lastName: String
+}
+
+struct People {
+    let name: String
+}
+
+let man1 = Man.init(firstName: "F1", lastName: "L1")
+let man2 = Man.init(firstName: "F2", lastName: "L2")
+let man3 = Man.init(firstName: "F3", lastName: "L3")
+
+let men = [man1, man2, man3]
+
+var people: [People] = []
+
+for man in men {
+    let name = "\(man.firstName) \(man.lastName)"
+    let localPeople = People.init(name: name)
+    people.append(localPeople)
+}
+
+let people2 = men.map { (man) -> People in
+    let name = "\(man.firstName) \(man.lastName)"
+    let localPeople = People.init(name: name)
+    return localPeople
+}
+
+let people3 = men.map({
+    return People.init(name: "\($0.firstName) \($0.lastName)")
+})
+
+
+
+
+
 enum PieType: Int {
     case apple = 0
     case cherry
@@ -117,14 +155,15 @@ case 0...8:
     print("A big cat")
 case 9:
     print("Mavericks")
+case 13:
+    print("High Sierra")
+    fallthrough
 case 10:
     print("Yosemite")
 case 11:
     print("El Capitan")
 case 12:
     print("Sierra")
-case 13:
-    print("High Sierra")
 default:
     print("Greetings, people of the future! What's new in 10.\(macOSVersion)?")
 }
