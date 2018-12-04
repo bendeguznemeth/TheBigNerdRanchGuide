@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		ED40107421B510C00088F345 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED40107321B510BF0088F345 /* MapKit.framework */; };
 		ED40107621B554B70088F345 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED40107521B554B70088F345 /* MapViewController.swift */; };
+		ED40107821B6A9150088F345 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED40107721B6A9150088F345 /* WebViewController.swift */; };
 		EDF5063421B2B89700DF59B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF5063321B2B89700DF59B5 /* AppDelegate.swift */; };
 		EDF5063921B2B89700DF59B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDF5063721B2B89700DF59B5 /* Main.storyboard */; };
 		EDF5063B21B2B89900DF59B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDF5063A21B2B89900DF59B5 /* Assets.xcassets */; };
@@ -38,6 +39,7 @@
 /* Begin PBXFileReference section */
 		ED40107321B510BF0088F345 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		ED40107521B554B70088F345 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		ED40107721B6A9150088F345 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		EDF5063021B2B89700DF59B5 /* WorldTrotter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorldTrotter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDF5063321B2B89700DF59B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EDF5063821B2B89700DF59B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 				EDF5063321B2B89700DF59B5 /* AppDelegate.swift */,
 				EDF5066121B3B67B00DF59B5 /* ConvertionViewController.swift */,
 				ED40107521B554B70088F345 /* MapViewController.swift */,
+				ED40107721B6A9150088F345 /* WebViewController.swift */,
 				EDF5063721B2B89700DF59B5 /* Main.storyboard */,
 				EDF5063A21B2B89900DF59B5 /* Assets.xcassets */,
 				EDF5063C21B2B89900DF59B5 /* LaunchScreen.storyboard */,
@@ -274,6 +277,7 @@
 				EDF5063421B2B89700DF59B5 /* AppDelegate.swift in Sources */,
 				ED40107621B554B70088F345 /* MapViewController.swift in Sources */,
 				EDF5066221B3B67B00DF59B5 /* ConvertionViewController.swift in Sources */,
+				ED40107821B6A9150088F345 /* WebViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
