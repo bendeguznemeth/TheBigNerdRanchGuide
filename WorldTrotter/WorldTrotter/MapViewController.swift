@@ -8,10 +8,13 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
-class MapViewController: UIViewController {
+class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
     var mapView: MKMapView!
+    
+    let locationManager = CLLocationManager()
     
     override func loadView() {
         
@@ -40,12 +43,29 @@ class MapViewController: UIViewController {
         
 //        trailingConstraint.isActive = true
         
+        let showLocationButton = UIButton(frame: CGRect(x: 100, y: 100, width: 50, height: 50))
+        showLocationButton.setTitle("Show Location", for: .normal)
+        showLocationButton.setTitleColor(UIColor.blue, for: .normal)
+        showLocationButton.sizeToFit()
+        
+        showLocationButton.addTarget(self, action: #selector(MapViewController.zoomOnCurrentLocation(_:)), for: .touchUpInside)
+        
+        showLocationButton.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(showLocationButton)
+        
+        showLocationButton.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -8).isActive = true
+        showLocationButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         print("MapViewController loaded its view.")
+        
+        mapView.delegate = self
+        locationManager.delegate = self
+        configureLocationServices()
         
     }
     
@@ -59,6 +79,24 @@ class MapViewController: UIViewController {
             mapView.mapType = .satellite
         default:
             break
+        }
+    }
+    
+    @objc func zoomOnCurrentLocation(_ button: UIButton) {
+        if let coordinate = locationManager.location?.coordinate {
+            mapView.showsUserLocation = true
+            let coordinateRegion = MKCoordinateRegion(center: coordinate, latitudinalMeters: 1000, longitudinalMeters: 1000)
+            mapView.setRegion(coordinateRegion, animated: true)
+        } else {
+            print("coordinates not found")
+        }
+    }
+    
+    func configureLocationServices() {
+        if CLLocationManager.authorizationStatus() != .authorizedAlways, CLLocationManager.locationServicesEnabled() {
+            locationManager.requestAlwaysAuthorization()
+        } else {
+            print("not autorized or not enabled")
         }
     }
 
