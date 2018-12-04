@@ -16,6 +16,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     
     let locationManager = CLLocationManager()
     
+    var points: [MKPointAnnotation] = []
+    
+    var index = 0
+    
     override func loadView() {
         
         mapView = MKMapView()
@@ -56,6 +60,19 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         showLocationButton.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -8).isActive = true
         showLocationButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
         
+        let showPinButton = UIButton(frame: CGRect(x: 100, y: 100, width: 50, height: 50))
+        showPinButton.setTitle("Show Pin", for: .normal)
+        showPinButton.setTitleColor(UIColor.blue, for: .normal)
+        showPinButton.sizeToFit()
+        
+        showPinButton.addTarget(self, action: #selector(MapViewController.showAPin(_:)), for: .touchUpInside)
+        
+        showPinButton.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(showPinButton)
+        
+        showPinButton.bottomAnchor.constraint(equalTo: showLocationButton.topAnchor, constant: -8).isActive = true
+        showPinButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        
     }
 
     override func viewDidLoad() {
@@ -66,6 +83,21 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         mapView.delegate = self
         locationManager.delegate = self
         configureLocationServices()
+        
+        let annotation0 = MKPointAnnotation()
+        annotation0.coordinate = CLLocationCoordinate2D(latitude: 47.667701, longitude: 16.505663)
+        points.append(annotation0)
+        mapView.addAnnotation(annotation0)
+        
+        let annotation1 = MKPointAnnotation()
+        annotation1.coordinate = CLLocationCoordinate2D(latitude: 47.677578, longitude: 17.651187)
+        points.append(annotation1)
+        mapView.addAnnotation(annotation1)
+        
+        let annotation2 = MKPointAnnotation()
+        annotation2.coordinate = CLLocationCoordinate2D(latitude: 47.513994, longitude: 19.053102)
+        points.append(annotation2)
+        mapView.addAnnotation(annotation2)
         
     }
     
@@ -89,6 +121,15 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
             mapView.setRegion(coordinateRegion, animated: true)
         } else {
             print("coordinates not found")
+        }
+    }
+    
+    @objc func showAPin(_ button: UIButton) {
+        let coordinateRegion = MKCoordinateRegion(center: points[index].coordinate, latitudinalMeters: 1000, longitudinalMeters: 1000)
+        mapView.setRegion(coordinateRegion, animated: true)
+        index += 1
+        if index == points.count {
+            index = 0
         }
     }
     
