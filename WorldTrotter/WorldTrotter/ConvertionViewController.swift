@@ -75,11 +75,13 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
 //        print("Replacement text: \(string)")
 //        return true
         
+        let currentLocale = Locale.current
+        let decimalSeparator = currentLocale.decimalSeparator ?? "."
         let characterSet = NSCharacterSet.decimalDigits
         
-        if let currentCharacter = textField.text, currentCharacter.contains("."), string == "." {
+        if let currentCharacter = textField.text, currentCharacter.contains(decimalSeparator), string == decimalSeparator {
             return false
-        } else if !characterSet.isSuperset(of: CharacterSet(charactersIn: string)), string != "." {
+        } else if !characterSet.isSuperset(of: CharacterSet(charactersIn: string)), string != decimalSeparator {
             return false
         } else {
             return true
@@ -106,8 +108,8 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
 //            celsiusLabel.text = "???"
 //        }
         
-        if let text = textField.text, let value = Double(text) {
-            fahrenheitValue = Measurement(value: value, unit: .fahrenheit)
+        if let text = textField.text, let number = numberFormatter.number(from: text) {
+            fahrenheitValue = Measurement(value: number.doubleValue, unit: .fahrenheit)
         } else {
             fahrenheitValue = nil
         }
