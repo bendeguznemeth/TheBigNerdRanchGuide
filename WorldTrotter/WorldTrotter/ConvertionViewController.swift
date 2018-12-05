@@ -13,13 +13,13 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var celsiusLabel: UILabel!
     @IBOutlet var textField: UITextField!
     
-    var fahrenheitValue: Measurement<UnitTemperature>? {
+    private var fahrenheitValue: Measurement<UnitTemperature>? {
         didSet {
             updateCelsiusLabel()
         }
     }
     
-    var celsiusValue: Measurement<UnitTemperature>? {
+    private var celsiusValue: Measurement<UnitTemperature>? {
         if let fahrenheitValue = fahrenheitValue {
             return fahrenheitValue.converted(to: .celsius)
         } else {
@@ -27,15 +27,8 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    let numberFormatter: NumberFormatter = {
-       let nf = NumberFormatter()
-        nf.numberStyle = .decimal
-        nf.minimumFractionDigits = 0
-        nf.maximumFractionDigits = 1
-        return nf
-    }()
-    
-    var bool = true
+    //TODO : persistálni
+    private var isGrayBackground = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,22 +52,11 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if bool {
-            self.view.backgroundColor = UIColor(red:0.96, green:0.96, blue:1.00, alpha:1.0)
-            bool = !bool
-        } else {
-            self.view.backgroundColor = UIColor(red:0.26, green:0.71, blue:0.96, alpha:1.0)
-            bool = !bool
-        }
+        changeBackground()
         
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        
-//        print("Current text: \(textField.text)")
-//        print("Replacement text: \(string)")
-//        return true
-        
         let currentLocale = Locale.current
         let decimalSeparator = currentLocale.decimalSeparator ?? "."
         let characterSet = NSCharacterSet.decimalDigits
@@ -86,29 +68,10 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
         } else {
             return true
         }
-        
-//        let existingTextHasDecimalSeparator = textField.text?.range(of: ".")
-//        let replacementTextHasDecimalSeparator = string.range(of: ".")
-//
-//        if existingTextHasDecimalSeparator != nil,
-//            replacementTextHasDecimalSeparator != nil {
-//            return false
-//        } else {
-//            return true
-//        }
-        
     }
     
     @IBAction func fahrenheitFieldEditingChanged(_ textField: UITextField) {
-//        celsiusLabel.text = textField.text
-        
-//        if let text = textField.text, !text.isEmpty {
-//            celsiusLabel.text = text
-//        } else {
-//            celsiusLabel.text = "???"
-//        }
-        
-        if let text = textField.text, let number = numberFormatter.number(from: text) {
+        if let text = textField.text, let number = getNumberFormatter().number(from: text) {
             fahrenheitValue = Measurement(value: number.doubleValue, unit: .fahrenheit)
         } else {
             fahrenheitValue = nil
@@ -119,12 +82,29 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
         textField.resignFirstResponder()
     }
     
-    func updateCelsiusLabel() {
+    private func updateCelsiusLabel() {
         if let celsiusValue = celsiusValue {
-//            celsiusLabel.text = "\(celsiusValue.value)"
-            celsiusLabel.text = numberFormatter.string(from: NSNumber(value: celsiusValue.value))
+            celsiusLabel.text = getNumberFormatter().string(from: NSNumber(value: celsiusValue.value))
         } else {
             celsiusLabel.text = "???"
+        }
+    }
+    
+    private func getNumberFormatter() -> NumberFormatter {
+        let nf = NumberFormatter()
+        nf.numberStyle = .decimal
+        nf.minimumFractionDigits = 0
+        nf.maximumFractionDigits = 1
+        return nf
+    }
+    
+    private func changeBackground() {
+        if isGrayBackground {
+            self.view.backgroundColor = UIColor(red:0.96, green:0.96, blue:1.00, alpha:1.0)
+            isGrayBackground = !isGrayBackground
+        } else {
+            self.view.backgroundColor = UIColor(red:0.26, green:0.71, blue:0.96, alpha:1.0)
+            isGrayBackground = !isGrayBackground
         }
     }
     
