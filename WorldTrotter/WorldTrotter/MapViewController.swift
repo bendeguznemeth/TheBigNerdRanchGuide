@@ -28,63 +28,9 @@ class MapViewController: UIViewController {
         mapView = MKMapView()
         self.view = mapView
         
-        //TODO : függvényekbe külön, button-ok osztályváltozóba
         addsegmentedControl()
         addShowLocationButton()
         addShowPinButton()
-        
-        let standardString = NSLocalizedString("Standard", comment: "Standard map view")
-        let satelliteString = NSLocalizedString("Satellite", comment: "Satellite map view")
-        let hybridString = NSLocalizedString("Hybrid", comment: "Hybrid map view")
-        
-        segmentedControl = UISegmentedControl(items: [standardString, satelliteString, hybridString])
-        
-        segmentedControl.backgroundColor = UIColor.white.withAlphaComponent(0.5)
-        
-        segmentedControl.selectedSegmentIndex = 0
-        
-        segmentedControl.addTarget(self, action: #selector(MapViewController.mapTypeChanged(_:)), for: .valueChanged)
-        
-        segmentedControl.translatesAutoresizingMaskIntoConstraints = false
-        
-        view.addSubview(segmentedControl)
-        
-        segmentedControl.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 8).isActive = true
-        
-        let margins = self.view.layoutMarginsGuide
-        
-        segmentedControl.leadingAnchor.constraint(equalTo: margins.leadingAnchor).isActive = true
-        segmentedControl.trailingAnchor.constraint(equalTo: margins.trailingAnchor).isActive = true
-        
-        
-        
-        showLocationButton = UIButton(frame: CGRect(x: 100, y: 100, width: 50, height: 50))
-        showLocationButton.setTitle("Show Location", for: .normal)
-        showLocationButton.setTitleColor(UIColor.blue, for: .normal)
-        showLocationButton.sizeToFit()
-        
-        showLocationButton.addTarget(self, action: #selector(MapViewController.zoomOnCurrentLocation(_:)), for: .touchUpInside)
-        
-        showLocationButton.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(showLocationButton)
-        
-        showLocationButton.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -8).isActive = true
-        showLocationButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-        
-        
-        
-        showPinButton = UIButton(frame: CGRect(x: 100, y: 100, width: 50, height: 50))
-        showPinButton.setTitle("Show Pin", for: .normal)
-        showPinButton.setTitleColor(UIColor.blue, for: .normal)
-        showPinButton.sizeToFit()
-        
-        showPinButton.addTarget(self, action: #selector(MapViewController.showAPin(_:)), for: .touchUpInside)
-        
-        showPinButton.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(showPinButton)
-        
-        showPinButton.bottomAnchor.constraint(equalTo: showLocationButton.topAnchor, constant: -8).isActive = true
-        showPinButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
         
     }
 
@@ -155,15 +101,57 @@ class MapViewController: UIViewController {
     }
     
     private func addsegmentedControl() {
+        let standardString = NSLocalizedString("Standard", comment: "Standard map view")
+        let satelliteString = NSLocalizedString("Satellite", comment: "Satellite map view")
+        let hybridString = NSLocalizedString("Hybrid", comment: "Hybrid map view")
         
+        segmentedControl = UISegmentedControl(items: [standardString, satelliteString, hybridString])
+        
+        segmentedControl.backgroundColor = UIColor.white.withAlphaComponent(0.5)
+        segmentedControl.selectedSegmentIndex = 0
+        
+        segmentedControl.addTarget(self, action: #selector(MapViewController.mapTypeChanged(_:)), for: .valueChanged)
+        
+        segmentedControl.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.addSubview(segmentedControl)
+        
+        segmentedControl.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 8).isActive = true
+        
+        let margins = self.view.layoutMarginsGuide
+        
+        segmentedControl.leadingAnchor.constraint(equalTo: margins.leadingAnchor).isActive = true
+        segmentedControl.trailingAnchor.constraint(equalTo: margins.trailingAnchor).isActive = true
     }
     
     private func addShowLocationButton() {
+        showLocationButton = UIButton(frame: CGRect(x: 100, y: 100, width: 50, height: 50))
+        showLocationButton.setTitle("Show Location", for: .normal)
+        showLocationButton.setTitleColor(UIColor.blue, for: .normal)
+        showLocationButton.sizeToFit()
         
+        showLocationButton.addTarget(self, action: #selector(MapViewController.zoomOnCurrentLocation(_:)), for: .touchUpInside)
+        
+        showLocationButton.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(showLocationButton)
+        
+        showLocationButton.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -8).isActive = true
+        showLocationButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
     }
     
     private func addShowPinButton() {
+        showPinButton = UIButton(frame: CGRect(x: 100, y: 100, width: 50, height: 50))
+        showPinButton.setTitle("Show Pin", for: .normal)
+        showPinButton.setTitleColor(UIColor.blue, for: .normal)
+        showPinButton.sizeToFit()
         
+        showPinButton.addTarget(self, action: #selector(MapViewController.showAPin(_:)), for: .touchUpInside)
+        
+        showPinButton.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(showPinButton)
+        
+        showPinButton.bottomAnchor.constraint(equalTo: showLocationButton.topAnchor, constant: -8).isActive = true
+        showPinButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
     }
 
 }

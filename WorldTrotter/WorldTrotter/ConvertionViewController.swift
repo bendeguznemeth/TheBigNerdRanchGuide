@@ -27,7 +27,7 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    //TODO : persistálni
+    //TODO : persistance
     private var isGrayBackground = true
     
     override func viewDidLoad() {
