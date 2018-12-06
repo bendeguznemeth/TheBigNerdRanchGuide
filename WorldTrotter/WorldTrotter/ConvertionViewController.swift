@@ -27,8 +27,13 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    //TODO : persistance
-    private var isGrayBackground = true
+    private let userDefKey = "userDefKey"
+    
+    private var isGrayBackground = true {
+        didSet{
+            saveBackgroundState()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +51,8 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
         print("ConvertionViewController loaded its view.")
         
         updateCelsiusLabel()
+        
+        loadBackgroundState()
         
     }
     
@@ -108,5 +115,12 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    private func saveBackgroundState() {
+        UserDefaults.standard.set(self.isGrayBackground, forKey: userDefKey)
+    }
+    
+    private func loadBackgroundState() {
+        self.isGrayBackground = UserDefaults.standard.bool(forKey: userDefKey)
+    }
+    
 }
-
