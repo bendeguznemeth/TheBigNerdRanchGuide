@@ -24,6 +24,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="???" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lkm-BF-tYi">
+                                <rect key="frame" x="0.0" y="98" width="375" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="???" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gUi-P6-w9t">
                                 <rect key="frame" x="0.0" y="322.5" width="375" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -50,11 +56,15 @@
                             <constraint firstItem="UZB-aa-kLv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7bz-fi-Uqd"/>
                             <constraint firstItem="UZB-aa-kLv" firstAttribute="top" secondItem="gUi-P6-w9t" secondAttribute="bottom" constant="20" id="AJa-ES-1cm"/>
                             <constraint firstItem="Eir-gj-UYF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="DXi-gZ-gjy"/>
+                            <constraint firstItem="Lkm-BF-tYi" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="78" id="H7R-XQ-49L"/>
                             <constraint firstItem="Eir-gj-UYF" firstAttribute="top" secondItem="1YV-MA-Bqw" secondAttribute="bottom" constant="24" id="Mek-wk-eoT"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gUi-P6-w9t" secondAttribute="trailing" id="RTk-9n-9u4"/>
                             <constraint firstItem="1YV-MA-Bqw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="U0u-wC-UIc"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1YV-MA-Bqw" secondAttribute="trailing" id="UXh-HV-n80"/>
+                            <constraint firstItem="Eir-gj-UYF" firstAttribute="top" secondItem="Lkm-BF-tYi" secondAttribute="bottom" constant="24" id="UXy-oM-3dZ"/>
+                            <constraint firstItem="Lkm-BF-tYi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="VG3-Oh-sgY"/>
                             <constraint firstItem="1YV-MA-Bqw" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="78" id="YB4-nD-Hjl"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Lkm-BF-tYi" secondAttribute="trailing" id="bB1-p7-RtC"/>
                             <constraint firstItem="gUi-P6-w9t" firstAttribute="top" secondItem="Eir-gj-UYF" secondAttribute="bottom" constant="150" id="jC3-pT-JfG"/>
                             <constraint firstItem="gUi-P6-w9t" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="sJh-Rn-7MP"/>
                         </constraints>
@@ -62,7 +72,8 @@
                     </view>
                     <connections>
                         <outlet property="answerLabel" destination="gUi-P6-w9t" id="uaO-FM-xUS"/>
-                        <outlet property="questionLabel" destination="1YV-MA-Bqw" id="9cm-g1-IHW"/>
+                        <outlet property="currentQuestionLabel" destination="1YV-MA-Bqw" id="woR-7w-15V"/>
+                        <outlet property="nextQuestionLabel" destination="Lkm-BF-tYi" id="cL2-cT-uWn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
