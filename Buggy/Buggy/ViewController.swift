@@ -20,6 +20,21 @@ class ViewController: UIViewController {
 //        print("sender: \(sender)")
 //        print("Is control on? \(sender.isOn)")
         print("Method: \(#function) in file: \(#file) line: \(#line) called.")
+        
+        badMethod()
+    }
+    
+    private func badMethod() {
+        let array = NSMutableArray()
+        
+        for i in 0..<10 {
+            array.insert(i, at: i)
+        }
+        
+        for _ in 0...10 {
+            array.removeObject(at: 0)
+        }
+        
     }
 
 }
