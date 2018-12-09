@@ -17,6 +17,9 @@ class ViewController: UIViewController {
     
     @IBAction func buttonTapped(_ sender: UIButton) {
         print("Called buttonTapped(_:)")
+//        print("sender: \(sender)")
+//        print("Is control on? \(sender.isOn)")
+        print("Method: \(#function) in file: \(#file) line: \(#line) called.")
     }
 
 }
