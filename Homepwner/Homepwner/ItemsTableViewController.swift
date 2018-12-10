@@ -9,6 +9,8 @@
 import UIKit
 
 class ItemsTableViewController: UITableViewController {
+    
+    var itemStore: ItemStore!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,21 +28,21 @@ class ItemsTableViewController: UITableViewController {
 //        // #warning Incomplete implementation, return the number of sections
 //        return 0
 //    }
-//
-//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        // #warning Incomplete implementation, return the number of rows
-//        return 0
-//    }
 
-    /*
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return itemStore.allItems.count
+    }
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = UITableViewCell(style: .value1, reuseIdentifier: "UITableViewCell")
+        
+        let item = itemStore.allItems[indexPath.row]
+        
+        cell.textLabel?.text = item.name
+        cell.detailTextLabel?.text = "$\(item.valueInDollars)"
+        
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.
