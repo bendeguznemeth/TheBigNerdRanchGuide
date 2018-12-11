@@ -46,6 +46,14 @@ class ItemsTableViewController: UITableViewController {
             return itemsBelow50.count + 1
         }
     }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 1, indexPath.row == itemsBelow50.count {
+            return 44
+        } else {
+            return 60
+        }
+    }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 //        let cell = UITableViewCell(style: .value1, reuseIdentifier: "UITableViewCell")
