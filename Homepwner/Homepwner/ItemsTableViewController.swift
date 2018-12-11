@@ -12,8 +12,8 @@ class ItemsTableViewController: UITableViewController {
     
     var itemStore: ItemStore!
     
-    private var itemsAbove50 = [Item]()
-    private var itemsBelow50 = [Item]()
+//    private var itemsAbove50 = [Item]()
+//    private var itemsBelow50 = [Item]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,9 +24,9 @@ class ItemsTableViewController: UITableViewController {
         tableView.contentInset = insets
         tableView.scrollIndicatorInsets = insets
         
-        separateItemsByPrice()
+//        separateItemsByPrice()
         
-        tableView.backgroundView = UIImageView(image: UIImage(named: "background"))
+//        tableView.backgroundView = UIImageView(image: UIImage(named: "background"))
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -37,77 +37,85 @@ class ItemsTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
-    }
+//    override func numberOfSections(in tableView: UITableView) -> Int {
+//        return 2
+//    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
-            return itemsAbove50.count
-        } else {
-            return itemsBelow50.count + 1
-        }
+//        if section == 0 {
+//            return itemsAbove50.count
+//        } else {
+//            return itemsBelow50.count + 1
+//        }
+        return itemStore.allItems.count
     }
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.section == 1, indexPath.row == itemsBelow50.count {
-            return 44
-        } else {
-            return 60
-        }
-    }
+//    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        if indexPath.section == 1, indexPath.row == itemsBelow50.count {
+//            return 44
+//        } else {
+//            return 60
+//        }
+//    }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 //        let cell = UITableViewCell(style: .value1, reuseIdentifier: "UITableViewCell")
-        
-        if indexPath.section == 1, indexPath.row == itemsBelow50.count {
-            
-            let cell = tableView.dequeueReusableCell(withIdentifier: "LastUITableViewCell", for: indexPath)
-            cell.textLabel?.text = "No more items!"
-            return cell
-            
-        } else {
-            
+//
+//        if indexPath.section == 1, indexPath.row == itemsBelow50.count {
+//
+//            let cell = tableView.dequeueReusableCell(withIdentifier: "LastUITableViewCell", for: indexPath)
+//            cell.textLabel?.text = "No more items!"
+//            return cell
+//
+//        } else {
+//
+//            let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
+//
+//            let item: Item
+//
+//            if indexPath.section == 0 {
+//                item = itemsAbove50[indexPath.row]
+//            } else {
+//                item = itemsBelow50[indexPath.row]
+//            }
+//
+//            cell.textLabel?.text = item.name
+//            cell.detailTextLabel?.text = "$\(item.valueInDollars)"
+//
+//            let font = UIFont.systemFont(ofSize: 20)
+//            cell.textLabel?.font = font
+//            cell.detailTextLabel?.font = font
+//
+//            return cell
+//       }
+    
             let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
-            
-            //        let item = itemStore.allItems[indexPath.row]
-            let item: Item
-            
-            if indexPath.section == 0 {
-                item = itemsAbove50[indexPath.row]
-            } else {
-                item = itemsBelow50[indexPath.row]
-            }
-            
+            let item = itemStore.allItems[indexPath.row]
             cell.textLabel?.text = item.name
             cell.detailTextLabel?.text = "$\(item.valueInDollars)"
             
-            let font = UIFont.systemFont(ofSize: 20)
-            cell.textLabel?.font = font
-            cell.detailTextLabel?.font = font
-            
             return cell
-        }
+            
         
     }
     
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if section == 0 {
-            return "Items worth more than $50"
-        } else {
-            return "Items worth less than $50"
-        }
-    }
-    
-    private func separateItemsByPrice() {
-        for item in itemStore.allItems {
-            if item.valueInDollars > 50 {
-                itemsAbove50.append(item)
-            } else {
-                itemsBelow50.append(item)
-            }
-        }
-    }
+//    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        if section == 0 {
+//            return "Items worth more than $50"
+//        } else {
+//            return "Items worth less than $50"
+//        }
+//    }
+
+//    private func separateItemsByPrice() {
+//        for item in itemStore.allItems {
+//            if item.valueInDollars > 50 {
+//                itemsAbove50.append(item)
+//            } else {
+//                itemsBelow50.append(item)
+//            }
+//        }
+//    }
 
     /*
     // Override to support conditional editing of the table view.
