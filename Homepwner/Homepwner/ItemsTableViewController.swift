@@ -43,28 +43,38 @@ class ItemsTableViewController: UITableViewController {
         if section == 0 {
             return itemsAbove50.count
         } else {
-            return itemsBelow50.count
+            return itemsBelow50.count + 1
         }
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 //        let cell = UITableViewCell(style: .value1, reuseIdentifier: "UITableViewCell")
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
-        
-//        let item = itemStore.allItems[indexPath.row]
-        let item: Item
-        
-        if indexPath.section == 0 {
-            item = itemsAbove50[indexPath.row]
+        if indexPath.section == 1, indexPath.row == itemsBelow50.count {
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: "LastUITableViewCell", for: indexPath)
+            cell.textLabel?.text = "No more items!"
+            return cell
+            
         } else {
-            item = itemsBelow50[indexPath.row]
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
+            
+            //        let item = itemStore.allItems[indexPath.row]
+            let item: Item
+            
+            if indexPath.section == 0 {
+                item = itemsAbove50[indexPath.row]
+            } else {
+                item = itemsBelow50[indexPath.row]
+            }
+            
+            cell.textLabel?.text = item.name
+            cell.detailTextLabel?.text = "$\(item.valueInDollars)"
+            
+            return cell
         }
         
-        cell.textLabel?.text = item.name
-        cell.detailTextLabel?.text = "$\(item.valueInDollars)"
-        
-        return cell
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
