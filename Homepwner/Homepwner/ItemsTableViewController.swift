@@ -25,6 +25,8 @@ class ItemsTableViewController: UITableViewController {
         tableView.scrollIndicatorInsets = insets
         
         separateItemsByPrice()
+        
+        tableView.backgroundView = UIImageView(image: UIImage(named: "background"))
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -79,6 +81,10 @@ class ItemsTableViewController: UITableViewController {
             
             cell.textLabel?.text = item.name
             cell.detailTextLabel?.text = "$\(item.valueInDollars)"
+            
+            let font = UIFont.systemFont(ofSize: 20)
+            cell.textLabel?.font = font
+            cell.detailTextLabel?.font = font
             
             return cell
         }
