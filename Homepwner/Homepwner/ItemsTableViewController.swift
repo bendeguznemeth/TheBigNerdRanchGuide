@@ -11,6 +11,9 @@ import UIKit
 class ItemsTableViewController: UITableViewController {
     
     var itemStore: ItemStore!
+    
+    private var itemsAbove50 = [Item]()
+    private var itemsBelow50 = [Item]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +23,8 @@ class ItemsTableViewController: UITableViewController {
         let insets = UIEdgeInsets(top: statusBarHeight, left: 0, bottom: 0, right: 0)
         tableView.contentInset = insets
         tableView.scrollIndicatorInsets = insets
+        
+        separateItemsByPrice()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -30,13 +35,16 @@ class ItemsTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        // #warning Incomplete implementation, return the number of sections
-//        return 0
-//    }
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return itemStore.allItems.count
+        if section == 0 {
+            return itemsAbove50.count
+        } else {
+            return itemsBelow50.count
+        }
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -44,12 +52,37 @@ class ItemsTableViewController: UITableViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
         
-        let item = itemStore.allItems[indexPath.row]
+//        let item = itemStore.allItems[indexPath.row]
+        let item: Item
+        
+        if indexPath.section == 0 {
+            item = itemsAbove50[indexPath.row]
+        } else {
+            item = itemsBelow50[indexPath.row]
+        }
         
         cell.textLabel?.text = item.name
         cell.detailTextLabel?.text = "$\(item.valueInDollars)"
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0 {
+            return "Items worth more than $50"
+        } else {
+            return "Items worth less than $50"
+        }
+    }
+    
+    private func separateItemsByPrice() {
+        for item in itemStore.allItems {
+            if item.valueInDollars > 50 {
+                itemsAbove50.append(item)
+            } else {
+                itemsBelow50.append(item)
+            }
+        }
     }
 
     /*
