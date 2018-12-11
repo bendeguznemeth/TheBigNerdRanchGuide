@@ -34,6 +34,20 @@ class ItemsTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
+    @IBAction func addNewItem(_ sender: UIButton) {
+        
+    }
+    
+    @IBAction func toggleEditingMode(_ sender: UIButton) {
+        if isEditing {
+            sender.setTitle("Edit", for: .normal)
+            setEditing(false, animated: true)
+        } else {
+            sender.setTitle("Done", for: .normal)
+            setEditing(true, animated: true)
+        }
+    }
 
     // MARK: - Table view data source
 
