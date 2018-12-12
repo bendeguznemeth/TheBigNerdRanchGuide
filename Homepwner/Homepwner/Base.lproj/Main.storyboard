@@ -47,33 +47,51 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="UITableViewCell" textLabel="n7N-gi-C4f" detailTextLabel="JNU-OZ-wpp" style="IBUITableViewCellStyleValue1" id="cFa-x2-dJO">
-                                <rect key="frame" x="0.0" y="88" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ItemTableViewCell" rowHeight="65" id="cFa-x2-dJO" customClass="ItemTableViewCell" customModule="Homepwner" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="88" width="375" height="65"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cFa-x2-dJO" id="m6x-Aa-e88">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="64.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="n7N-gi-C4f">
-                                            <rect key="frame" x="16" y="12" width="33.5" height="20.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1gA-Bw-HzU">
+                                            <rect key="frame" x="16" y="11" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JNU-OZ-wpp">
-                                            <rect key="frame" x="315" y="12" width="44" height="20.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UyC-BO-tx9">
+                                            <rect key="frame" x="16" y="36" width="31" height="18"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vqX-Zx-7Id">
+                                            <rect key="frame" x="317" y="22" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="vqX-Zx-7Id" secondAttribute="trailing" constant="16" id="ML9-x6-Rk0"/>
+                                        <constraint firstItem="UyC-BO-tx9" firstAttribute="leading" secondItem="1gA-Bw-HzU" secondAttribute="leading" id="WGT-fb-wRj"/>
+                                        <constraint firstItem="1gA-Bw-HzU" firstAttribute="leading" secondItem="m6x-Aa-e88" secondAttribute="leadingMargin" id="Z3J-CU-OBh"/>
+                                        <constraint firstItem="UyC-BO-tx9" firstAttribute="top" secondItem="1gA-Bw-HzU" secondAttribute="bottom" constant="4" id="cZk-bd-DOn"/>
+                                        <constraint firstItem="UyC-BO-tx9" firstAttribute="bottom" secondItem="m6x-Aa-e88" secondAttribute="bottomMargin" id="hVY-h6-Wsq"/>
+                                        <constraint firstItem="1gA-Bw-HzU" firstAttribute="top" secondItem="m6x-Aa-e88" secondAttribute="topMargin" id="jwH-ph-f7B"/>
+                                        <constraint firstItem="vqX-Zx-7Id" firstAttribute="centerY" secondItem="m6x-Aa-e88" secondAttribute="centerY" id="nNA-8m-21A"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="nameLabel" destination="1gA-Bw-HzU" id="2u0-dU-IpR"/>
+                                    <outlet property="serialNumberLabel" destination="UyC-BO-tx9" id="pJa-eZ-XoX"/>
+                                    <outlet property="valueLabel" destination="vqX-Zx-7Id" id="fBB-wi-acX"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LastUITableViewCell" textLabel="6I8-za-jQm" style="IBUITableViewCellStyleDefault" id="mkB-Ap-0fq">
-                                <rect key="frame" x="0.0" y="132" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="153" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mkB-Ap-0fq" id="qBp-c2-bbA">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>

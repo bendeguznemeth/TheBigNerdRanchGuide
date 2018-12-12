@@ -24,6 +24,10 @@ class ItemsTableViewController: UITableViewController {
         tableView.contentInset = insets
         tableView.scrollIndicatorInsets = insets
         
+//        tableView.rowHeight = 65
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 65
+        
 //        separateItemsByPrice()
         
 //        tableView.backgroundView = UIImageView(image: UIImage(named: "background"))
@@ -113,10 +117,14 @@ class ItemsTableViewController: UITableViewController {
             cell.textLabel?.text = "No more items!"
             return cell
         } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ItemTableViewCell", for: indexPath) as! ItemTableViewCell
             let item = itemStore.allItems[indexPath.row]
-            cell.textLabel?.text = item.name
-            cell.detailTextLabel?.text = "$\(item.valueInDollars)"
+//            cell.textLabel?.text = item.name
+//            cell.detailTextLabel?.text = "$\(item.valueInDollars)"
+            
+            cell.nameLabel.text = item.name
+            cell.serialNumberLabel.text = item.serialNumber
+            cell.valueLabel.text = "$\(item.valueInDollars)"
             
             return cell
         }
