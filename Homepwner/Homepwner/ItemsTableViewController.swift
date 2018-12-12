@@ -141,13 +141,13 @@ class ItemsTableViewController: UITableViewController {
 //        }
 //    }
 
-    /*
-    // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+        if indexPath.row == itemStore.allItems.count {
+            return false
+        } else {
+            return true
+        }
     }
-    */
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
@@ -180,6 +180,14 @@ class ItemsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         itemStore.moveItem(from: sourceIndexPath.row, to: destinationIndexPath.row)
+    }
+    
+    override func tableView(_ tableView: UITableView, targetIndexPathForMoveFromRowAt sourceIndexPath: IndexPath, toProposedIndexPath proposedDestinationIndexPath: IndexPath) -> IndexPath {
+        if proposedDestinationIndexPath.row == itemStore.allItems.count {
+            return sourceIndexPath
+        } else {
+            return proposedDestinationIndexPath
+        }
     }
     
     override func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
