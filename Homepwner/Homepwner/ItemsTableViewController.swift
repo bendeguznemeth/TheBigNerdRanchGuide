@@ -66,7 +66,7 @@ class ItemsTableViewController: UITableViewController {
 //        } else {
 //            return itemsBelow50.count + 1
 //        }
-        return itemStore.allItems.count
+        return itemStore.allItems.count + 1
     }
     
 //    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -107,14 +107,19 @@ class ItemsTableViewController: UITableViewController {
 //
 //            return cell
 //       }
-    
+        
+        if indexPath.row == itemStore.allItems.count {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "LastUITableViewCell", for: indexPath)
+            cell.textLabel?.text = "No more items!"
+            return cell
+        } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
             let item = itemStore.allItems[indexPath.row]
             cell.textLabel?.text = item.name
             cell.detailTextLabel?.text = "$\(item.valueInDollars)"
-        
-            return cell
             
+            return cell
+        }
         
     }
     
@@ -162,6 +167,14 @@ class ItemsTableViewController: UITableViewController {
             })
             ac.addAction(deleteAction)
             present(ac, animated: true, completion: nil)
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        if indexPath.row == itemStore.allItems.count {
+            return false
+        } else {
+            return true
         }
     }
     
