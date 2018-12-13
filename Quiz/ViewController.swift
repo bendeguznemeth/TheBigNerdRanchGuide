@@ -36,10 +36,6 @@ class ViewController: UIViewController {
         currentQuestionLabel.text = questions[currentQuestionIndex]
         
         updateOffScreenLabel()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         
         nextQuestionLabel.alpha = 0
     }
