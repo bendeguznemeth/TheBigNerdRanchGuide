@@ -17,6 +17,7 @@
 		ED92647021BE5E30008BD8EC /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED92646F21BE5E30008BD8EC /* Item.swift */; };
 		ED92647221BE7FD8008BD8EC /* ItemStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED92647121BE7FD8008BD8EC /* ItemStore.swift */; };
 		EDE6FBDF21C1323700653D1B /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE6FBDE21C1323700653D1B /* ItemTableViewCell.swift */; };
+		EDE6FBE521C25D6900653D1B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE6FBE421C25D6900653D1B /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		ED92646F21BE5E30008BD8EC /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		ED92647121BE7FD8008BD8EC /* ItemStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemStore.swift; sourceTree = "<group>"; };
 		EDE6FBDE21C1323700653D1B /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
+		EDE6FBE421C25D6900653D1B /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 			children = (
 				ED92643F21BE48A2008BD8EC /* AppDelegate.swift */,
 				ED92646D21BE542A008BD8EC /* ItemsTableViewController.swift */,
+				EDE6FBE421C25D6900653D1B /* DetailViewController.swift */,
 				EDE6FBDE21C1323700653D1B /* ItemTableViewCell.swift */,
 				ED92647121BE7FD8008BD8EC /* ItemStore.swift */,
 				ED92646F21BE5E30008BD8EC /* Item.swift */,
@@ -268,6 +271,7 @@
 				ED92644021BE48A2008BD8EC /* AppDelegate.swift in Sources */,
 				ED92647021BE5E30008BD8EC /* Item.swift in Sources */,
 				EDE6FBDF21C1323700653D1B /* ItemTableViewCell.swift in Sources */,
+				EDE6FBE521C25D6900653D1B /* DetailViewController.swift in Sources */,
 				ED92647221BE7FD8008BD8EC /* ItemStore.swift in Sources */,
 				ED92646E21BE542A008BD8EC /* ItemsTableViewController.swift in Sources */,
 			);
