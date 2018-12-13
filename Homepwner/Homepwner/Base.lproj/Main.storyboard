@@ -89,7 +89,7 @@
                                     <outlet property="nameLabel" destination="1gA-Bw-HzU" id="2u0-dU-IpR"/>
                                     <outlet property="serialNumberLabel" destination="UyC-BO-tx9" id="pJa-eZ-XoX"/>
                                     <outlet property="valueLabel" destination="vqX-Zx-7Id" id="fBB-wi-acX"/>
-                                    <segue destination="d3f-al-eph" kind="show" id="XfE-7u-vi1"/>
+                                    <segue destination="d3f-al-eph" kind="show" identifier="showItem" id="XfE-7u-vi1"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LastUITableViewCell" textLabel="6I8-za-jQm" style="IBUITableViewCellStyleDefault" id="mkB-Ap-0fq">
@@ -121,10 +121,10 @@
             </objects>
             <point key="canvasLocation" x="248.80000000000001" y="112.89355322338831"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="oTK-Ub-JKM">
             <objects>
-                <viewController id="d3f-al-eph" sceneMemberID="viewController">
+                <viewController id="d3f-al-eph" customClass="DetailViewController" customModule="Homepwner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yKn-4k-kMK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -205,6 +205,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="YLk-fN-IAk"/>
                     </view>
+                    <connections>
+                        <outlet property="dateLabel" destination="7PG-aa-6cO" id="vSx-5L-nns"/>
+                        <outlet property="nameField" destination="BA7-bH-oO5" id="5Fv-3j-sDl"/>
+                        <outlet property="serialNumberField" destination="QpR-sT-els" id="k2k-Kc-ZWw"/>
+                        <outlet property="valueField" destination="z0K-uC-rCF" id="V23-2E-MhF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="crT-t1-Kf4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
