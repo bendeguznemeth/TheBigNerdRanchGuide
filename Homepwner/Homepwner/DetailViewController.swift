@@ -15,9 +15,9 @@ class DetailViewController: UIViewController {
     @IBOutlet var valueField: UITextField!
     @IBOutlet var dateLabel: UILabel!
     
-    var item: Item!
+    var item: Item?
     
-    let numberFormatter: NumberFormatter = {
+    private let numberFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
         formatter.minimumFractionDigits = 2
@@ -25,7 +25,7 @@ class DetailViewController: UIViewController {
         return formatter
     }()
     
-    let dateFormatter: DateFormatter = {
+    private let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateStyle = .medium
         formatter.timeStyle = .none
@@ -41,12 +41,15 @@ class DetailViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        nameField.text = item.name
-        serialNumberField.text = item.serialNumber
-//        valueField.text = "\(item.valueInDollars)"
-//        dateLabel.text = "\(item.dateCreated)"
-        valueField.text = numberFormatter.string(from: NSNumber(value: item.valueInDollars))
-        dateLabel.text = dateFormatter.string(from: item.dateCreated)
+        if let item = self.item {
+            nameField.text = item.name
+            serialNumberField.text = item.serialNumber
+            //        valueField.text = "\(item.valueInDollars)"
+            //        dateLabel.text = "\(item.dateCreated)"
+            valueField.text = numberFormatter.string(from: NSNumber(value: item.valueInDollars))
+            dateLabel.text = dateFormatter.string(from: item.dateCreated)
+        }
+        
     }
     
 

@@ -177,7 +177,9 @@ class ItemsTableViewController: UITableViewController {
             
             let deleteAction = UIAlertAction(title: "Remove", style: .destructive, handler: { (action) -> Void in
                                                 self.itemStore.removeItem(item)
-                                                self.tableView.deleteRows(at: [indexPath], with: .automatic)
+                self.tableView.beginUpdates()
+                self.tableView.deleteRows(at: [indexPath], with: .automatic)
+                self.tableView.endUpdates()
             })
             ac.addAction(deleteAction)
             present(ac, animated: true, completion: nil)
@@ -213,8 +215,9 @@ class ItemsTableViewController: UITableViewController {
         case "showItem":
             if let row = tableView.indexPathForSelectedRow?.row {
                 let item = itemStore.allItems[row]
-                let detailViewController = segue.destination as! DetailViewController
-                detailViewController.item = item
+                if let detailViewController = segue.destination as? DetailViewController {
+                    detailViewController.item = item
+                }
             }
         default:
             preconditionFailure("Unexpected segue identifier.")

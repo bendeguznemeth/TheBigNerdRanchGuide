@@ -13,6 +13,10 @@ class ItemTableViewCell: UITableViewCell {
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var serialNumberLabel: UILabel!
     @IBOutlet var valueLabel: UILabel!
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()
