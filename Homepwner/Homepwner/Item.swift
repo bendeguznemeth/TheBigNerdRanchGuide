@@ -9,9 +9,9 @@
 import UIKit
 
 class Item: NSObject {
-    let name: String
-    let valueInDollars: Int
-    let serialNumber: String?
+    var name: String
+    var valueInDollars: Int
+    var serialNumber: String?
     let dateCreated: Date
     
     init(name: String, valueInDollars: Int, serialNumber: String?) {

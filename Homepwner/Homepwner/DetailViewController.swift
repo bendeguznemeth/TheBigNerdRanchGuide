@@ -44,8 +44,6 @@ class DetailViewController: UIViewController {
         if let item = self.item {
             nameField.text = item.name
             serialNumberField.text = item.serialNumber
-            //        valueField.text = "\(item.valueInDollars)"
-            //        dateLabel.text = "\(item.dateCreated)"
             valueField.text = numberFormatter.string(from: NSNumber(value: item.valueInDollars))
             dateLabel.text = dateFormatter.string(from: item.dateCreated)
         }
