@@ -147,6 +147,9 @@
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="d3f-al-eph" id="Ili-lm-TSK"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -164,6 +167,9 @@
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="d3f-al-eph" id="1JI-el-3Y8"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -181,6 +187,9 @@
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="d3f-al-eph" id="fLf-b5-PBN"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -198,6 +207,7 @@
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="TL9-jF-u8S" firstAttribute="leading" secondItem="YLk-fN-IAk" secondAttribute="leading" constant="8" id="DTT-J9-anN"/>
                             <constraint firstItem="YLk-fN-IAk" firstAttribute="bottom" secondItem="TL9-jF-u8S" secondAttribute="bottom" id="bHd-B1-5lD"/>
@@ -205,6 +215,9 @@
                             <constraint firstItem="YLk-fN-IAk" firstAttribute="trailing" secondItem="TL9-jF-u8S" secondAttribute="trailing" constant="8" id="vQZ-Bg-h8E"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="YLk-fN-IAk"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="fos-Ar-7rz" appends="YES" id="hVl-32-r53"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="dateLabel" destination="7PG-aa-6cO" id="vSx-5L-nns"/>
@@ -214,6 +227,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="crT-t1-Kf4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="fos-Ar-7rz">
+                    <connections>
+                        <action selector="backgroundTapped:" destination="d3f-al-eph" id="9eO-NO-0VR"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1932" y="112.89355322338831"/>
         </scene>
