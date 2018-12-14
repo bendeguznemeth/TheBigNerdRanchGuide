@@ -26,6 +26,12 @@ class ItemsTableViewController: UITableViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        tableView.reloadData()
+    }
+    
     @IBAction func addNewItem(_ sender: UIButton) {
         let newItem = itemStore.createItem()
         if let index = itemStore.allItems.index(of: newItem) {
