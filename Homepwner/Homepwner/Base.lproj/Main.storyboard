@@ -217,6 +217,11 @@
                                             <action selector="takePicture:" destination="d3f-al-eph" id="hvH-7T-kka"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem title="Delete Image" id="b9n-XU-kdq">
+                                        <connections>
+                                            <action selector="deleteImage:" destination="d3f-al-eph" id="Gfi-6M-F2s"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>

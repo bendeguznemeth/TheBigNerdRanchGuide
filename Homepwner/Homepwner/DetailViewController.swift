@@ -103,6 +103,13 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
         present(imagePicker, animated: true, completion: nil)
     }
     
+    @IBAction func deleteImage(_ sender: UIBarButtonItem) {
+        if let key = item?.itemKey {
+            imageStore?.deleteImage(forKey: key)
+        }
+        imageView.image = nil
+    }
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let image = info[UIImagePickerController.InfoKey.editedImage] as! UIImage
         if let itemKey = item?.itemKey {
