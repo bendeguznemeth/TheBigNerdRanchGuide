@@ -96,13 +96,15 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
             imagePicker.sourceType = .photoLibrary
         }
         
+        imagePicker.allowsEditing = true
+        
         imagePicker.delegate = self
         
         present(imagePicker, animated: true, completion: nil)
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+        let image = info[UIImagePickerController.InfoKey.editedImage] as! UIImage
         if let itemKey = item?.itemKey {
             imageStore?.setImage(image, forKey: itemKey)
         }
