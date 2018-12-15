@@ -22,6 +22,8 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
         }
     }
     
+    var imageStore: ImageStore?
+    
     private let numberFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
@@ -51,6 +53,11 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
             serialNumberField.text = item.serialNumber
             valueField.text = numberFormatter.string(from: NSNumber(value: item.valueInDollars))
             dateLabel.text = dateFormatter.string(from: item.dateCreated)
+        }
+        
+        if let key = item?.itemKey {
+            let imageToDisplay = imageStore?.image(forKey: key)
+            imageView.image = imageToDisplay
         }
         
     }
@@ -96,6 +103,9 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+        if let itemKey = item?.itemKey {
+            imageStore?.setImage(image, forKey: itemKey)
+        }
         imageView.image = image
         dismiss(animated: true, completion: nil)
     }

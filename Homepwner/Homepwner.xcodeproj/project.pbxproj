@@ -18,6 +18,7 @@
 		ED92647221BE7FD8008BD8EC /* ItemStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED92647121BE7FD8008BD8EC /* ItemStore.swift */; };
 		EDDF7A6921C5070400AC17C6 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDF7A6821C5070400AC17C6 /* CustomTextField.swift */; };
 		EDDF7A6B21C5141600AC17C6 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDF7A6A21C5141600AC17C6 /* DatePickerViewController.swift */; };
+		EDDF7A6D21C54DCD00AC17C6 /* ImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDF7A6C21C54DCD00AC17C6 /* ImageStore.swift */; };
 		EDE6FBDF21C1323700653D1B /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE6FBDE21C1323700653D1B /* ItemTableViewCell.swift */; };
 		EDE6FBE521C25D6900653D1B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE6FBE421C25D6900653D1B /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
@@ -57,6 +58,7 @@
 		ED92647121BE7FD8008BD8EC /* ItemStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemStore.swift; sourceTree = "<group>"; };
 		EDDF7A6821C5070400AC17C6 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		EDDF7A6A21C5141600AC17C6 /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
+		EDDF7A6C21C54DCD00AC17C6 /* ImageStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStore.swift; sourceTree = "<group>"; };
 		EDE6FBDE21C1323700653D1B /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
 		EDE6FBE421C25D6900653D1B /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -114,6 +116,7 @@
 				EDE6FBE421C25D6900653D1B /* DetailViewController.swift */,
 				EDDF7A6A21C5141600AC17C6 /* DatePickerViewController.swift */,
 				EDE6FBDE21C1323700653D1B /* ItemTableViewCell.swift */,
+				EDDF7A6C21C54DCD00AC17C6 /* ImageStore.swift */,
 				ED92647121BE7FD8008BD8EC /* ItemStore.swift */,
 				ED92646F21BE5E30008BD8EC /* Item.swift */,
 				EDDF7A6821C5070400AC17C6 /* CustomTextField.swift */,
@@ -279,6 +282,7 @@
 				ED92647021BE5E30008BD8EC /* Item.swift in Sources */,
 				EDE6FBDF21C1323700653D1B /* ItemTableViewCell.swift in Sources */,
 				EDDF7A6B21C5141600AC17C6 /* DatePickerViewController.swift in Sources */,
+				EDDF7A6D21C54DCD00AC17C6 /* ImageStore.swift in Sources */,
 				EDE6FBE521C25D6900653D1B /* DetailViewController.swift in Sources */,
 				ED92647221BE7FD8008BD8EC /* ItemStore.swift in Sources */,
 				ED92646E21BE542A008BD8EC /* ItemsTableViewController.swift in Sources */,
