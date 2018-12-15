@@ -10,9 +10,9 @@ import UIKit
 
 class DetailViewController: UIViewController, UITextFieldDelegate {
 
-    @IBOutlet var nameField: UITextField!
-    @IBOutlet var serialNumberField: UITextField!
-    @IBOutlet var valueField: UITextField!
+    @IBOutlet var nameField: CustomTextField!
+    @IBOutlet var serialNumberField: CustomTextField!
+    @IBOutlet var valueField: CustomTextField!
     @IBOutlet var dateLabel: UILabel!
     
     var item: Item? {
@@ -78,14 +78,15 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         view.endEditing(true)
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        switch segue.identifier {
+        case "showDate":
+            if let datePickerViewController = segue.destination as? DatePickerViewController {
+                datePickerViewController.item = item
+            }
+        default:
+            preconditionFailure("Unexpected segue identifier.")
+        }
     }
-    */
 
 }
