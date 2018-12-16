@@ -92,6 +92,17 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
         
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             imagePicker.sourceType = .camera
+            
+            let crossImage = UIImage(named: "cross")
+            let crossImageView = UIImageView(image: crossImage)
+            
+            let width = imagePicker.view.bounds.width
+            let height = imagePicker.view.bounds.height
+            
+            crossImageView.frame = CGRect(x: (width / 2) - 25, y: height / 2 - 65, width: 50, height: 50)
+            
+            imagePicker.cameraOverlayView = crossImageView
+            
         } else {
             imagePicker.sourceType = .photoLibrary
         }
