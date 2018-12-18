@@ -12,14 +12,13 @@ class ItemStore {
     
     var allItems = [Item]()
     
-    let itemArchiveURL: URL = {
+    let itemArchiveURL: URL? = {
         let documentsDirectories = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        let documentDirectory = documentsDirectories.first!
-        return documentDirectory.appendingPathComponent("items.archive")
+        return documentsDirectories.first?.appendingPathComponent("items.archive")
     }()
-    
+
     init() {
-        if let archivedItems = NSKeyedUnarchiver.unarchiveObject(withFile: itemArchiveURL.path) as? [Item] {
+        if let itemArchiveURL = self.itemArchiveURL, let archivedItems = NSKeyedUnarchiver.unarchiveObject(withFile: itemArchiveURL.path) as? [Item] {
             allItems = archivedItems
         }
     }
@@ -48,8 +47,13 @@ class ItemStore {
     }
     
     func saveChanges() -> Bool {
-        print("Saving items to: \(itemArchiveURL.path)")
-        return NSKeyedArchiver.archiveRootObject(allItems, toFile: itemArchiveURL.path)
+        if let url = self.itemArchiveURL {
+            print("Saving items to: \(url.path)")
+            
+            return NSKeyedArchiver.archiveRootObject(allItems, toFile: url.path)
+        } else {
+            return false
+        }
     }
     
 }
