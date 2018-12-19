@@ -13,11 +13,11 @@ class DrawView: UIView {
     var currentLines = [NSValue:Line]()
     var finishedLines = [Line]()
     
-    @IBInspectable var finishedLineColor: UIColor = UIColor.black {
-        didSet {
-            setNeedsDisplay()
-        }
-    }
+//    @IBInspectable var finishedLineColor: UIColor = UIColor.black {
+//        didSet {
+//            setNeedsDisplay()
+//        }
+//    }
     
     @IBInspectable var currentLineColor: UIColor = UIColor.red {
         didSet {
@@ -42,8 +42,21 @@ class DrawView: UIView {
     }
     
     override func draw(_ rect: CGRect) {
-        finishedLineColor.setStroke()
+//        finishedLineColor.setStroke()
+        
         for line in finishedLines {
+            
+            let yDiff = Float(line.begin.y - line.end.y)
+            let xDiff = Float(line.end.x - line.begin.x)
+            var degrees = CGFloat(atan2f(yDiff, xDiff) * 180 / Float.pi)
+            
+            while degrees <= 0 {
+                degrees += 360
+            }
+            
+            let color = UIColor(hue: degrees / 360, saturation: 1.0, brightness: 1.0, alpha: 1.0)
+            color.setStroke()
+            
             stroke(line)
         }
         
