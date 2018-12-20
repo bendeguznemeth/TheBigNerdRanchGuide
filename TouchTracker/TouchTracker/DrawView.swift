@@ -12,7 +12,15 @@ class DrawView: UIView {
     
     var currentLines = [NSValue:Line]()
     var finishedLines = [Line]()
-    var selectedLineIndex: Int?
+    
+    var selectedLineIndex: Int? {
+        didSet {
+            if selectedLineIndex == nil {
+                let menu = UIMenuController.shared
+                menu.setMenuVisible(false, animated: true)
+            }
+        }
+    }
     
 //    @IBInspectable var finishedLineColor: UIColor = UIColor.black {
 //        didSet {
@@ -30,6 +38,10 @@ class DrawView: UIView {
         didSet {
             setNeedsDisplay()
         }
+    }
+    
+    override var canBecomeFirstResponder: Bool {
+        return true
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -61,7 +73,32 @@ class DrawView: UIView {
         let point = gestureRecognizer.location(in: self)
         selectedLineIndex = indexOfLine(at: point)
         
+        let menu = UIMenuController.shared
+        
+        if selectedLineIndex != nil {
+            
+            becomeFirstResponder()
+            
+            let deleteItem = UIMenuItem(title: "Delete", action: #selector(DrawView.deleteLine(_:)))
+            menu.menuItems = [deleteItem]
+            
+            let targetRect = CGRect(x: point.x, y: point.y, width: 2, height: 2)
+            menu.setTargetRect(targetRect, in: self)
+            menu.setMenuVisible(true, animated: true)
+        } else {
+            menu.setMenuVisible(false, animated: true)
+        }
+        
         setNeedsDisplay()
+    }
+    
+    @objc func deleteLine(_ sender: UIMenuController) {
+        if let index = selectedLineIndex {
+            finishedLines.remove(at: index)
+            selectedLineIndex = nil
+            
+            setNeedsDisplay()
+        }
     }
     
     func stroke(_ line: Line) {
@@ -82,11 +119,11 @@ class DrawView: UIView {
             let yDiff = Float(line.begin.y - line.end.y)
             let xDiff = Float(line.end.x - line.begin.x)
             var degrees = CGFloat(atan2f(yDiff, xDiff) * 180 / Float.pi)
-            
+
             while degrees <= 0 {
                 degrees += 360
             }
-            
+
             let color = UIColor(hue: degrees / 360, saturation: 1.0, brightness: 1.0, alpha: 1.0)
             color.setStroke()
             
