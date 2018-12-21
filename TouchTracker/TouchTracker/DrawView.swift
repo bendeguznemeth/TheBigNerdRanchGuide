@@ -172,6 +172,9 @@ class DrawView: UIView, UIGestureRecognizerDelegate {
         
         path.move(to: line.begin)
         path.addLine(to: line.end)
+//        path.addLine(to: CGPoint(x: 30, y: 40))
+//        path.close()
+//        path.fill()
         path.stroke()
     }
     
@@ -225,6 +228,7 @@ class DrawView: UIView, UIGestureRecognizerDelegate {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
         print(#function)
         
         for touch in touches {
@@ -241,6 +245,7 @@ class DrawView: UIView, UIGestureRecognizerDelegate {
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesMoved(touches, with: event)
         print(#function)
         
         for touch in touches {
@@ -252,6 +257,7 @@ class DrawView: UIView, UIGestureRecognizerDelegate {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
         print(#function)
         
         for touch in touches {
@@ -268,6 +274,7 @@ class DrawView: UIView, UIGestureRecognizerDelegate {
     }
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesCancelled(touches, with: event)
         print(#function)
         
         currentLines.removeAll()
