@@ -45,11 +45,11 @@ class DrawView: UIView, UIGestureRecognizerDelegate {
         }
     }
     
-    @IBInspectable var lineThickness: CGFloat = 10 {
-        didSet {
-            setNeedsDisplay()
-        }
-    }
+//    @IBInspectable var lineThickness: CGFloat = 10 {
+//        didSet {
+//            setNeedsDisplay()
+//        }
+//    }
     
     override var canBecomeFirstResponder: Bool {
         return true
@@ -167,7 +167,7 @@ class DrawView: UIView, UIGestureRecognizerDelegate {
     
     func stroke(_ line: Line) {
         let path = UIBezierPath()
-        path.lineWidth = lineThickness
+        path.lineWidth = line.lineThickness
         path.lineCapStyle = .round
         
         path.move(to: line.begin)
@@ -251,6 +251,8 @@ class DrawView: UIView, UIGestureRecognizerDelegate {
         for touch in touches {
             let key = NSValue(nonretainedObject: touch)
             currentLines[key]?.end = touch.location(in: self)
+            
+            currentLines[key]?.velocity = moveRecognizer.velocity(in: self)
         }
         
         setNeedsDisplay()
