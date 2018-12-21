@@ -22,6 +22,15 @@ class DrawView: UIView, UIGestureRecognizerDelegate {
         }
     }
     
+    var selectedForMoveIndex: Int? {
+        didSet {
+            if selectedForMoveIndex == nil {
+                let menu = UIMenuController.shared
+                menu.setMenuVisible(false, animated: true)
+            }
+        }
+    }
+    
     var moveRecognizer: UIPanGestureRecognizer!
     
 //    @IBInspectable var finishedLineColor: UIColor = UIColor.black {
@@ -77,6 +86,7 @@ class DrawView: UIView, UIGestureRecognizerDelegate {
         print("Recognized a double tap")
         
         selectedLineIndex = nil
+        selectedForMoveIndex = nil
         currentLines.removeAll()
         finishedLines.removeAll()
         setNeedsDisplay()
@@ -111,6 +121,7 @@ class DrawView: UIView, UIGestureRecognizerDelegate {
         if let index = selectedLineIndex {
             finishedLines.remove(at: index)
             selectedLineIndex = nil
+            selectedForMoveIndex = nil
             
             setNeedsDisplay()
         }
@@ -121,13 +132,13 @@ class DrawView: UIView, UIGestureRecognizerDelegate {
         
         if gestureRecognizer.state == .began {
             let point = gestureRecognizer.location(in: self)
-            selectedLineIndex = indexOfLine(at: point)
+            selectedForMoveIndex = indexOfLine(at: point)
             
-            if selectedLineIndex != nil {
+            if selectedForMoveIndex != nil {
                 currentLines.removeAll()
             }
         } else if gestureRecognizer.state == .ended {
-            selectedLineIndex = nil
+            selectedForMoveIndex = nil
         }
         
         setNeedsDisplay()
@@ -136,7 +147,7 @@ class DrawView: UIView, UIGestureRecognizerDelegate {
     @objc func moveLine(_ gestureRecognizer: UIPanGestureRecognizer) {
         print("Recognized a pan")
         
-        if let index = selectedLineIndex {
+        if let index = selectedForMoveIndex {
             if gestureRecognizer.state == .changed {
                 let translation = gestureRecognizer.translation(in: self)
                 
