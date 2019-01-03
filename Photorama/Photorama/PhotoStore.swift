@@ -82,7 +82,7 @@ class PhotoStore {
             
             let result = self.processImageRequest(data: data, error: error)
             
-            OperationQueue.main.addOperation {
+            DispatchQueue.main.sync {
                 completion(result)
             }
             
