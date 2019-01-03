@@ -16,7 +16,24 @@ class PhotosViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        store.fetchInterestingPhotos { (photosResult) -> Void in
+        self.fetchPhotos(method: .interestingPhotos)
+        
+    }
+    
+    @IBAction func onSegmentedControlClick(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            self.fetchPhotos(method: .interestingPhotos)
+        case 1:
+            self.fetchPhotos(method: .recentPhotos)
+        default:
+            break
+        }
+    }
+    
+    private func fetchPhotos(method: Method) {
+        
+        store.fetchPhotos(method: method) { (photosResult) -> Void in
             
             switch photosResult {
             case let .success(photos):
@@ -27,13 +44,13 @@ class PhotosViewController: UIViewController {
                 }
                 
             case let .failure(error):
-                print("Error fetching interesting photos: \(error)")
+                print("Error fetching photos: \(error)")
             }
             
         }
     }
     
-    func updateImageView(for photo: Photo) {
+    private func updateImageView(for photo: Photo) {
         
         store.fetchImage(for: photo) { (imageResult) -> Void in
             
