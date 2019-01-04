@@ -30,16 +30,8 @@ class PhotoStore {
         return URLSession(configuration: config)
     }()
     
-    func fetchPhotos(method: Method, completion: @escaping (PhotosResult) -> Void) {
-        let url: URL
-        
-        switch method {
-        case .interestingPhotos:
-            url = FlickrAPI.interestingPhotosURL
-        case .recentPhotos:
-            url = FlickrAPI.recentPhotosURL
-        }
-
+    func fetchInterestingPhotos(completion: @escaping (PhotosResult) -> Void) {
+        let url = FlickrAPI.interestingPhotosURL
         let request = URLRequest(url: url)
         
         let task = session.dataTask(with: request) { (data, response, error) -> Void in
@@ -82,7 +74,7 @@ class PhotoStore {
             
             let result = self.processImageRequest(data: data, error: error)
             
-            DispatchQueue.main.sync {
+            OperationQueue.main.addOperation {
                 completion(result)
             }
             
