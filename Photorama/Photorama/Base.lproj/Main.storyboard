@@ -18,22 +18,60 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kiv-kM-Cwx">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                            </imageView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zwg-ny-YAE">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="2" minimumInteritemSpacing="2" id="Lv8-WR-Quj">
+                                    <size key="itemSize" width="90" height="90"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="2" minY="2" maxX="2" maxY="2"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoCollectionViewCell" id="mOu-K7-G10" customClass="PhotoCollectionViewCell" customModule="Photorama" customModuleProvider="target">
+                                        <rect key="frame" x="2" y="2" width="90" height="90"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FTx-80-pOC">
+                                                    <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
+                                                </imageView>
+                                                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Sjg-XY-05F">
+                                                    <rect key="frame" x="26.5" y="26.5" width="37" height="37"/>
+                                                </activityIndicatorView>
+                                            </subviews>
+                                        </view>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="FTx-80-pOC" firstAttribute="leading" secondItem="mOu-K7-G10" secondAttribute="leading" id="30B-PG-W9j"/>
+                                            <constraint firstItem="Sjg-XY-05F" firstAttribute="centerX" secondItem="mOu-K7-G10" secondAttribute="centerX" id="8WF-a0-lm2"/>
+                                            <constraint firstAttribute="trailing" secondItem="FTx-80-pOC" secondAttribute="trailing" id="Lp4-k6-G4t"/>
+                                            <constraint firstItem="Sjg-XY-05F" firstAttribute="centerY" secondItem="mOu-K7-G10" secondAttribute="centerY" id="NwM-JJ-qkj"/>
+                                            <constraint firstAttribute="bottom" secondItem="FTx-80-pOC" secondAttribute="bottom" id="rdb-sd-J9b"/>
+                                            <constraint firstItem="FTx-80-pOC" firstAttribute="top" secondItem="mOu-K7-G10" secondAttribute="top" id="sQ2-ap-OLP"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="imageView" destination="FTx-80-pOC" id="gnd-lC-inl"/>
+                                            <outlet property="spinner" destination="Sjg-XY-05F" id="h3c-nY-uJR"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kiv-kM-Cwx" secondAttribute="trailing" id="Aln-iw-evr"/>
-                            <constraint firstItem="kiv-kM-Cwx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Psh-Ln-t9J"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="kiv-kM-Cwx" secondAttribute="bottom" id="Ty4-OJ-7OV"/>
-                            <constraint firstItem="kiv-kM-Cwx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="otH-e6-PD6"/>
+                            <constraint firstItem="zwg-ny-YAE" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="X38-v3-8Vl"/>
+                            <constraint firstAttribute="bottom" secondItem="zwg-ny-YAE" secondAttribute="bottom" id="adX-TS-WyJ"/>
+                            <constraint firstAttribute="trailing" secondItem="zwg-ny-YAE" secondAttribute="trailing" id="keK-E0-bgp"/>
+                            <constraint firstItem="zwg-ny-YAE" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="p8X-48-mDy"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Photorama" id="pQ8-sH-J4K"/>
                     <connections>
-                        <outlet property="imageView" destination="kiv-kM-Cwx" id="Yac-r5-0YS"/>
+                        <outlet property="collectionView" destination="zwg-ny-YAE" id="GIY-Yn-Y1d"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
