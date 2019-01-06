@@ -17,8 +17,7 @@ class ImageStore {
         
         let url = imageURL(forKey: key)
         
-//        if let data = image.jpegData(compressionQuality: 0.5) {
-        if let data = image.pngData() {
+        if let data = image.jpegData(compressionQuality: 0.5) {
             let _ = try? data.write(to: url, options: [.atomic])
         }
     }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PhotosViewController: UIViewController, UICollectionViewDelegate {
+class PhotosViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     @IBOutlet var collectionView: UICollectionView!
     
@@ -52,15 +52,27 @@ class PhotosViewController: UIViewController, UICollectionViewDelegate {
             }
         }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let widthHeight = collectionView.bounds.width / 4 - 2.5
+        return CGSize(width: widthHeight, height: widthHeight)
     }
-    */
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case "showPhoto":
+            if let selectedIndexPath = collectionView.indexPathsForSelectedItems?.first {
+                
+                let photo = photoDataSource.photos[selectedIndexPath.row]
+                
+                if let destinationVC = segue.destination as? PhotoInfoViewController {
+                    destinationVC.photo = photo
+                    destinationVC.store = store
+                }
+            }
+        default:
+            preconditionFailure("Unexpected segue identifier.")
+        }
+    }
+    
 }
