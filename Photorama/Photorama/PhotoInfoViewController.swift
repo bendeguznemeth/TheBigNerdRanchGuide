@@ -11,6 +11,7 @@ import UIKit
 class PhotoInfoViewController: UIViewController {
 
     @IBOutlet var imageView: UIImageView!
+    @IBOutlet var viewCountLabel: UILabel!
     
     var photo: Photo! {
         didSet {
@@ -31,9 +32,31 @@ class PhotoInfoViewController: UIViewController {
                 print("Error fetching image for photo: \(error)")
             }
         }
+        
+        incrementViewCount()
+        
+        viewCountLabel.text = "View count: \(photo.viewCount)"
+        
+        saveChanges()
+        
     }
     
-
+    private func incrementViewCount() {
+        if photo.viewCount >= 1 {
+            photo.viewCount += 1
+        } else {
+            photo.viewCount = 1
+        }
+    }
+    
+    private func saveChanges() {
+        do {
+            try store.persistentContainer.viewContext.save()
+        } catch {
+            print("Saving failed, Error: \(error)")
+        }
+    }
+    
     /*
     // MARK: - Navigation
 

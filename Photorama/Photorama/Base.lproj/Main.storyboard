@@ -90,18 +90,27 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="T8T-kt-jwW">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eQD-7W-uvZ">
+                                <rect key="frame" x="165.5" y="637" width="44" height="22"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="dM2-Tc-C2b" firstAttribute="bottom" secondItem="T8T-kt-jwW" secondAttribute="bottom" id="0dH-HW-isx"/>
                             <constraint firstItem="T8T-kt-jwW" firstAttribute="top" secondItem="dM2-Tc-C2b" secondAttribute="top" id="Kl4-ha-Ebp"/>
                             <constraint firstItem="T8T-kt-jwW" firstAttribute="leading" secondItem="dM2-Tc-C2b" secondAttribute="leading" id="RO0-0k-8Xq"/>
+                            <constraint firstItem="eQD-7W-uvZ" firstAttribute="centerX" secondItem="nKM-Lq-heP" secondAttribute="centerX" id="TSK-Ii-5IU"/>
+                            <constraint firstItem="dM2-Tc-C2b" firstAttribute="bottom" secondItem="eQD-7W-uvZ" secondAttribute="bottom" constant="8" id="Tzp-r0-8YT"/>
                             <constraint firstItem="dM2-Tc-C2b" firstAttribute="trailing" secondItem="T8T-kt-jwW" secondAttribute="trailing" id="avS-AJ-aNP"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dM2-Tc-C2b"/>
                     </view>
                     <connections>
                         <outlet property="imageView" destination="T8T-kt-jwW" id="TNP-dP-Gzf"/>
+                        <outlet property="viewCountLabel" destination="eQD-7W-uvZ" id="T9r-bN-sgd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TgG-FL-nuJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
