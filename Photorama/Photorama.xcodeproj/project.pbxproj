@@ -14,6 +14,8 @@
 		ED2116A621E389E800E9F005 /* Photorama.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ED2116A421E389E800E9F005 /* Photorama.xcdatamodeld */; };
 		ED2116A921E3BD9000E9F005 /* Photo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2116A721E3BD9000E9F005 /* Photo+CoreDataClass.swift */; };
 		ED2116AA21E3BD9000E9F005 /* Photo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2116A821E3BD9000E9F005 /* Photo+CoreDataProperties.swift */; };
+		ED69A76121E61F9E00D4C51C /* TagsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED69A76021E61F9E00D4C51C /* TagsTableViewController.swift */; };
+		ED69A76321E6247800D4C51C /* TagDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED69A76221E6247800D4C51C /* TagDataSource.swift */; };
 		EDD3332F21D78235009FC77D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD3332E21D78235009FC77D /* AppDelegate.swift */; };
 		EDD3333421D78235009FC77D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDD3333221D78235009FC77D /* Main.storyboard */; };
 		EDD3333621D78237009FC77D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDD3333521D78237009FC77D /* Assets.xcassets */; };
@@ -50,6 +52,8 @@
 		ED2116A521E389E800E9F005 /* Photorama.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Photorama.xcdatamodel; sourceTree = "<group>"; };
 		ED2116A721E3BD9000E9F005 /* Photo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Photo+CoreDataClass.swift"; sourceTree = "<group>"; };
 		ED2116A821E3BD9000E9F005 /* Photo+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Photo+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		ED69A76021E61F9E00D4C51C /* TagsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsTableViewController.swift; sourceTree = "<group>"; };
+		ED69A76221E6247800D4C51C /* TagDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagDataSource.swift; sourceTree = "<group>"; };
 		EDD3332B21D78235009FC77D /* Photorama.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Photorama.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDD3332E21D78235009FC77D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EDD3333321D78235009FC77D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -122,6 +126,8 @@
 				ED2116A421E389E800E9F005 /* Photorama.xcdatamodeld */,
 				EDD3335C21D78408009FC77D /* PhotosViewController.swift */,
 				ED2116A021E1FD8C00E9F005 /* PhotoInfoViewController.swift */,
+				ED69A76021E61F9E00D4C51C /* TagsTableViewController.swift */,
+				ED69A76221E6247800D4C51C /* TagDataSource.swift */,
 				EDD3335E21D78DC1009FC77D /* FlickrAPI.swift */,
 				EDD3336021DCA7FA009FC77D /* PhotoStore.swift */,
 				ED21169E21DFB75A00E9F005 /* ImageStore.swift */,
@@ -284,6 +290,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED2116A921E3BD9000E9F005 /* Photo+CoreDataClass.swift in Sources */,
+				ED69A76321E6247800D4C51C /* TagDataSource.swift in Sources */,
 				EDD3335F21D78DC1009FC77D /* FlickrAPI.swift in Sources */,
 				EDD3335D21D78408009FC77D /* PhotosViewController.swift in Sources */,
 				EDD3336121DCA7FA009FC77D /* PhotoStore.swift in Sources */,
@@ -293,6 +300,7 @@
 				ED21169D21DF84FF00E9F005 /* PhotoCollectionViewCell.swift in Sources */,
 				ED2116AA21E3BD9000E9F005 /* Photo+CoreDataProperties.swift in Sources */,
 				EDD3332F21D78235009FC77D /* AppDelegate.swift in Sources */,
+				ED69A76121E61F9E00D4C51C /* TagsTableViewController.swift in Sources */,
 				ED2116A121E1FD8C00E9F005 /* PhotoInfoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
