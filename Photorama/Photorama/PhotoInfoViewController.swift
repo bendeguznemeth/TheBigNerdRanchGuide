@@ -34,7 +34,7 @@ class PhotoInfoViewController: UIViewController {
             }
         }
         
-        incrementViewCount()
+        photo.viewCount += 1
         viewCountLabel.text = "View count: \(photo.viewCount)"
         
         if photo.favorite {
@@ -63,14 +63,6 @@ class PhotoInfoViewController: UIViewController {
         }
         
         saveChanges()
-    }
-    
-    private func incrementViewCount() {
-        if photo.viewCount >= 1 {
-            photo.viewCount += 1
-        } else {
-            photo.viewCount = 1
-        }
     }
     
     private func saveChanges() {
