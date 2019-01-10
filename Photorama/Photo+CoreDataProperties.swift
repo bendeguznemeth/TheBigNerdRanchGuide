@@ -2,7 +2,7 @@
 //  Photo+CoreDataProperties.swift
 //  Photorama
 //
-//  Created by Németh Bendegúz on 2019. 01. 09..
+//  Created by Németh Bendegúz on 2019. 01. 10..
 //  Copyright © 2019. Németh Bendegúz. All rights reserved.
 //
 //
@@ -22,6 +22,7 @@ extension Photo {
     @NSManaged public var remoteURL: NSURL?
     @NSManaged public var title: String?
     @NSManaged public var viewCount: Int16
+    @NSManaged public var favorite: Bool
     @NSManaged public var tags: NSSet?
 
 }

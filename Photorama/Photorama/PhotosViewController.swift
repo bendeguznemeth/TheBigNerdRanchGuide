@@ -28,13 +28,26 @@ class PhotosViewController: UIViewController, UICollectionViewDelegate, UICollec
         }
     }
     
+    @IBAction func onSegmentedControlClick(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            photoDataSource.shouldUseFavoritePhotos = false
+            updateDataSource()
+        case 1:
+            photoDataSource.shouldUseFavoritePhotos = true
+            updateDataSource()
+        default:
+            print("Unexpected segmented control state")
+        }
+    }
+    
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         
-        let photo = photoDataSource.photos[indexPath.row]
+        let photo = photoDataSource.photosOfInterest[indexPath.row]
         
         store.fetchImage(for: photo) { (result) -> Void in
             
-            guard let photoIndex = self.photoDataSource.photos.index(of: photo), case let .success(image) = result else {
+            guard let photoIndex = self.photoDataSource.photosOfInterest.index(of: photo), case let .success(image) = result else {
                 return
             }
             
@@ -56,7 +69,7 @@ class PhotosViewController: UIViewController, UICollectionViewDelegate, UICollec
         case "showPhoto":
             if let selectedIndexPath = collectionView.indexPathsForSelectedItems?.first {
                 
-                let photo = photoDataSource.photos[selectedIndexPath.row]
+                let photo = photoDataSource.photosOfInterest[selectedIndexPath.row]
                 
                 if let destinationVC = segue.destination as? PhotoInfoViewController {
                     destinationVC.photo = photo

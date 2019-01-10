@@ -12,6 +12,7 @@ class PhotoInfoViewController: UIViewController {
     
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var viewCountLabel: UILabel!
+    @IBOutlet var favoriteButton: UIButton!
     
     var photo: Photo! {
         didSet {
@@ -34,11 +35,34 @@ class PhotoInfoViewController: UIViewController {
         }
         
         incrementViewCount()
-        
         viewCountLabel.text = "View count: \(photo.viewCount)"
+        
+        if photo.favorite {
+            let heartImage = UIImage(named: "heart-red")
+            favoriteButton.setBackgroundImage(heartImage, for: .normal)
+        } else {
+            let emptyHeartImage = UIImage(named: "empty-heart-red")
+            favoriteButton.setBackgroundImage(emptyHeartImage, for: .normal)
+        }
         
         saveChanges()
         
+    }
+    
+    @IBAction func onHeartClick(_ sender: UIButton) {
+        if photo.favorite != true {
+            photo.favorite = true
+            
+            let heartImage = UIImage(named: "heart-red")
+            sender.setBackgroundImage(heartImage, for: .normal)
+        } else {
+            photo.favorite = false
+            
+            let emptyHeartImage = UIImage(named: "empty-heart-red")
+            sender.setBackgroundImage(emptyHeartImage, for: .normal)
+        }
+        
+        saveChanges()
     }
     
     private func incrementViewCount() {
